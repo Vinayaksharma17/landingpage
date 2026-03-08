@@ -12,12 +12,6 @@ services:
       - 'traefik.http.routers.resume-hub.entrypoints=websecure'
       - 'traefik.http.routers.resume-hub.tls.certresolver=letsencrypt'
       - 'traefik.http.services.resume-hub.loadbalancer.server.port=80'
-      # HTTP → HTTPS redirect
-      - 'traefik.http.routers.resume-hub-http.rule=Host(`links.vinayaksharma.dpdns.org`)'
-      - 'traefik.http.routers.resume-hub-http.entrypoints=web'
-      - 'traefik.http.routers.resume-hub-http.middlewares=redirect-to-https'
-      - 'traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https'
-      - 'traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true'
 
 networks:
   web:
