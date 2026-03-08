@@ -1,0 +1,17 @@
+services:
+  resume-hub:
+    image: resume-hub:latest
+    container_name: resume-hub
+    restart: unless-stopped
+    networks:
+      - web
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.resume-hub.rule=Host(`links.vinayaksharma.dpdns.org`)'
+      - 'traefik.http.routers.resume-hub.entrypoints=websecure'
+      - 'traefik.http.routers.resume-hub.tls.certresolver=letsencrypt'
+      - 'traefik.http.services.resume-hub.loadbalancer.server.port=80'
+
+networks:
+  web:
+    external: true
