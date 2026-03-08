@@ -386,6 +386,84 @@
       .footer span {
         color: var(--green);
       }
+
+      /* ── Certificates Section ── */
+      .section-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--text3);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-label::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .cert-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .cert-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--text);
+        transition: background 0.2s, border-color 0.2s, transform 0.15s;
+        position: relative;
+        overflow: hidden;
+        --card-accent: #34d399;
+      }
+      .cert-card::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--card-accent);
+        border-radius: 3px 0 0 3px;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        transition: transform 0.25s ease;
+      }
+      .cert-card:hover::before {
+        transform: scaleY(1);
+      }
+      .cert-card:hover {
+        background: var(--surface2);
+        border-color: var(--card-accent);
+        transform: translateX(4px);
+      }
+      .cert-card:hover .link-arrow {
+        color: var(--card-accent);
+        transform: translateX(3px);
+      }
+      .cert-badge {
+        font-family: var(--mono);
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--card-accent);
+        background: rgba(52, 211, 153, 0.08);
+        border: 1px solid rgba(52, 211, 153, 0.2);
+        border-radius: 4px;
+        padding: 2px 6px;
+        flex-shrink: 0;
+      }
     </style>
   </head>
   <body>
@@ -460,6 +538,11 @@
         </a>
       </div>
 
+      <div class="divider"></div>
+
+      <div class="section-label">🏅 Certificates</div>
+      <div class="cert-list" id="cert-list"></div>
+
       <div class="footer">
         <span>VS</span> · RESUME HUB · ALL SYSTEMS ONLINE
       </div>
@@ -480,6 +563,20 @@
         github: 'https://github.com/Vinayaksharma17', // ⑥ GitHub profile URL
         video: 'https://youtube.com/shorts/nhTyncMMm0s', // ⑦ Video resume URL (YouTube / Loom / Vimeo)
         linkedin: 'https://www.linkedin.com/in/vinayak-sharma17/', // ⑧ LinkedIn profile URL
+
+        // ⑨ Certificates — add as many as you want: { title, issuer, url }
+        certificates: [
+          {
+            title: 'Azure DevOps with Git',
+            issuer: 'Certification Body',
+            url: 'https://ik.imagekit.io/9tixsmmmb/certificates/ORMCertificate20260308-31-gfvm0m.pdf',
+          },
+          {
+            title: 'CCNA Network Course',
+            issuer: 'Certification Body',
+            url: 'https://ik.imagekit.io/9tixsmmmb/certificates/ORMCertificate20260308-31-r7a2t.pdf',
+          },
+        ],
       }
 
       // ╔══════════════════════════════════════════════════════════╗
@@ -514,6 +611,23 @@
       document.getElementById('card-github').href = MY.github
       document.getElementById('card-video').href = MY.video || '#'
       document.getElementById('card-linkedin').href = MY.linkedin
+
+      // Render certificates
+      const certList = document.getElementById('cert-list')
+      MY.certificates.forEach(function (cert, i) {
+        const delay = (0.35 + i * 0.07).toFixed(2)
+        certList.innerHTML += `
+          <a class="cert-card" href="${cert.url}" target="_blank" rel="noopener"
+             style="animation: slideIn 0.4s ease ${delay}s both;">
+            <div class="link-icon">📄</div>
+            <div class="link-info">
+              <div class="link-label">${cert.issuer}</div>
+              <div class="link-value">${cert.title}</div>
+            </div>
+            <span class="cert-badge">PDF</span>
+            <div class="link-arrow">→</div>
+          </a>`
+      })
     </script>
   </body>
 </html>
