@@ -32,7 +32,12 @@ jobs:
             --exclude '.github' \
             ./ ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }}:~/resume-hub/
 
-      - name: Reload Nginx on VM
+      - name: Build Docker image on VM
         run: |
           ssh ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} \
-            "sudo systemctl reload nginx && echo '✅ Nginx reloaded successfully'"
+            "cd ~/resume-hub && docker build -t resume-hub:latest ."
+
+      - name: Deploy with Docker Compose on VM
+        run: |
+          ssh ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} \
+            "cd ~/resume-hub && docker compose up -d --force-recreate && echo '✅ resume-hub deployed'"
