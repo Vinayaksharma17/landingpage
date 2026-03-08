@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #090c09;
+    color: #e8f0e8;
+    font-family: 'IBM Plex Mono', monospace;
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 40px 24px;
+  }
+  .card {
+    background: #111711;
+    border: 1px solid #1e2b1e;
+    border-radius: 10px;
+    padding: 40px;
+    width: 100%; max-width: 420px;
+    text-align: center;
+  }
+  .label {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: #22c55e; margin-bottom: 24px;
+  }
+  .label::before { content: '>_ '; }
+  input {
+    width: 100%; background: #090c09;
+    border: 1px solid #243224; color: #e8f0e8;
+    border-radius: 6px; padding: 11px 14px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px;
+    outline: none; margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  input:focus { border-color: #22c55e; }
+  button {
+    width: 100%; padding: 12px;
+    background: #22c55e; color: #000;
+    border: none; border-radius: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s;
+    margin-bottom: 28px;
+  }
+  button:hover { background: #16a34a; }
+  #qr-wrap {
+    display: none;
+    flex-direction: column; align-items: center; gap: 16px;
+  }
+  #qr-wrap.show { display: flex; }
+  #qr-box {
+    padding: 12px; background: #fff; border-radius: 8px;
+    border: 2px solid #22c55e;
+    box-shadow: 0 0 24px rgba(34,197,94,0.25);
+  }
+  .hint { font-size: 11px; color: #5a7a5a; letter-spacing: 1px; }
+  .hint::before { content: '// '; color: #16a34a; }
+  .dl-btn {
+    background: transparent;
+    border: 1px solid #243224; color: #a0b4a0;
+    padding: 9px 20px; font-size: 11px;
+    margin-bottom: 0;
+  }
+  .dl-btn:hover { border-color: #22c55e; color: #22c55e; background: transparent; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="label">QR Code Generator</div>
+  <input type="text" id="url-input" placeholder="https://yourdomain.com">
+  <button onclick="generate()">GENERATE_QR()</button>
+
+  <div id="qr-wrap">
+    <div id="qr-box"><div id="qrcode"></div></div>
+    <div class="hint">right-click image → Save as PNG</div>
+    <button class="dl-btn" onclick="download()">⬇ DOWNLOAD PNG</button>
+  </div>
+</div>
+
+<script>
+  function generate() {
+    const url = document.getElementById('url-input').value.trim();
+    if (!url) return;
+    document.getElementById('qrcode').innerHTML = '';
+    new QRCode(document.getElementById('qrcode'), {
+      text: url,
+      width: 200, height: 200,
+      colorDark: '#090c09', colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+    document.getElementById('qr-wrap').classList.add('show');
+  }
+
+  function download() {
+    const img = document.querySelector('#qrcode img');
+    if (!img) return;
+    const a = document.createElement('a');
+    a.href = img.src;
+    a.download = 'resume-qr.png';
+    a.click();
+  }
+
+  document.getElementById('url-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') generate();
+  });
+</script>
+</body>
+</html>
