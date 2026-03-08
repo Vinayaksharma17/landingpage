@@ -25,6 +25,7 @@ resume_hub_landing_page/
 This project auto-deploys to **GitHub Pages** via GitHub Actions on every push to `main`.
 
 ### How it works
+
 1. Push any change to `main`
 2. GitHub Actions runs the `deploy.yml` workflow
 3. The site goes live at your custom subdomain automatically
@@ -36,11 +37,12 @@ This project auto-deploys to **GitHub Pages** via GitHub Actions on every push t
 The `CNAME` file points GitHub Pages to your custom subdomain.
 
 ### DNS Configuration (in your domain registrar / DuckDNS)
+
 Add a **CNAME record**:
 
-| Type  | Host            | Value                          |
-|-------|-----------------|-------------------------------|
-| CNAME | `links`         | `<your-github-username>.github.io` |
+| Type  | Host    | Value                              |
+| ----- | ------- | ---------------------------------- |
+| CNAME | `links` | `<your-github-username>.github.io` |
 
 > Replace `<your-github-username>` with your actual GitHub username.
 
@@ -52,14 +54,14 @@ All personal data lives in one place inside `index.html`:
 
 ```js
 const MY = {
-  name:      'Vinayak Sharma',
-  title:     'Associate Engineer - IIoT',
-  phone:     '+91 7975524393',
-  email:     'vvsharma999@gmail.com',
+  name: 'Vinayak Sharma',
+  title: 'Associate Engineer - IIoT',
+  phone: '+91 7975524393',
+  email: 'vvsharma999@gmail.com',
   portfolio: 'https://vinayaksharma.dpdns.org/',
-  github:    'https://github.com/Vinayaksharma17',
-  video:     'https://youtube.com/shorts/nhTyncMMm0s',
-  linkedin:  'https://www.linkedin.com/in/vinayak-sharma17/',
+  github: 'https://github.com/Vinayaksharma17',
+  video: 'https://youtube.com/shorts/nhTyncMMm0s',
+  linkedin: 'https://www.linkedin.com/in/vinayak-sharma17/',
 }
 ```
 
