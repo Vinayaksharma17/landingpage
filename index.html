@@ -40,7 +40,7 @@
     />
 
     <!-- Theme color (browser UI tint on mobile) -->
-    <meta name="theme-color" content="#090c09" />
+    <meta name="theme-color" content="#1A1F2C" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap"
@@ -48,17 +48,17 @@
     />
     <style>
       :root {
-        --bg: #090c09;
-        --bg2: #0d110d;
-        --surface: #111711;
-        --surface2: #161e16;
-        --border: #1e2b1e;
-        --border2: #243224;
-        --green: #22c55e;
-        --green-dim: #16a34a;
-        --text: #e8f0e8;
-        --text2: #a0b4a0;
-        --text3: #5a7a5a;
+        --bg: #1a1f2c;
+        --bg2: #1e2435;
+        --surface: #222840;
+        --surface2: #28304a;
+        --border: #2d3650;
+        --border2: #343e5e;
+        --accent: #9b87f5;
+        --accent-dim: #7c6de0;
+        --text: #e8eaf6;
+        --text2: #a0aabe;
+        --text3: #5a6680;
         --mono: 'IBM Plex Mono', monospace;
         --body: 'Space Grotesk', sans-serif;
       }
@@ -124,7 +124,7 @@
         height: 400px;
         background: radial-gradient(
           ellipse,
-          rgba(34, 197, 94, 0.07) 0%,
+          rgba(155, 135, 245, 0.08) 0%,
           transparent 70%
         );
         pointer-events: none;
@@ -161,10 +161,10 @@
         inset: -3px;
         border-radius: 50%;
         background: conic-gradient(
-          var(--green),
-          var(--green-dim),
+          var(--accent),
+          var(--accent-dim),
           transparent,
-          var(--green)
+          var(--accent)
         );
         z-index: -1;
         animation: spinRing 4s linear infinite;
@@ -201,7 +201,7 @@
         margin-bottom: 6px;
       }
       .name span {
-        color: var(--green);
+        color: var(--accent);
       }
 
       .tag-line {
@@ -216,7 +216,7 @@
       }
       .tag-line::before {
         content: '>_';
-        color: var(--green);
+        color: var(--accent);
         margin-right: 4px;
       }
 
@@ -224,7 +224,7 @@
         display: inline-block;
         width: 8px;
         height: 13px;
-        background: var(--green);
+        background: var(--accent);
         animation: blink 1s step-end infinite;
         vertical-align: middle;
         margin-left: 2px;
@@ -244,7 +244,7 @@
         background: linear-gradient(
           90deg,
           transparent,
-          var(--green-dim),
+          var(--accent-dim),
           transparent
         );
         margin: 32px 0;
@@ -281,7 +281,7 @@
         top: 0;
         bottom: 0;
         width: 3px;
-        background: var(--card-accent, var(--green));
+        background: var(--card-accent, var(--accent));
         border-radius: 3px 0 0 3px;
         transform: scaleY(0);
         transform-origin: bottom;
@@ -292,24 +292,24 @@
       }
       .link-card:hover {
         background: var(--surface2);
-        border-color: var(--card-accent, var(--green));
+        border-color: var(--card-accent, var(--accent));
         transform: translateX(4px);
       }
 
       .link-card:nth-child(1) {
-        --card-accent: #22c55e;
+        --card-accent: #9b87f5;
         animation: slideIn 0.4s ease 0.05s both;
       }
       .link-card:nth-child(2) {
-        --card-accent: #eab308;
+        --card-accent: #60a5fa;
         animation: slideIn 0.4s ease 0.1s both;
       }
       .link-card:nth-child(3) {
-        --card-accent: #38bdf8;
+        --card-accent: #34d399;
         animation: slideIn 0.4s ease 0.15s both;
       }
       .link-card:nth-child(4) {
-        --card-accent: #a78bfa;
+        --card-accent: #f472b6;
         animation: slideIn 0.4s ease 0.2s both;
       }
       .link-card:nth-child(5) {
@@ -317,7 +317,7 @@
         animation: slideIn 0.4s ease 0.25s both;
       }
       .link-card:nth-child(6) {
-        --card-accent: #f472b6;
+        --card-accent: #a78bfa;
         animation: slideIn 0.4s ease 0.3s both;
       }
 
@@ -384,7 +384,7 @@
         letter-spacing: 1px;
       }
       .footer span {
-        color: var(--green);
+        color: var(--accent);
       }
 
       /* ── Certificates Section ── */
@@ -428,7 +428,7 @@
           transform 0.15s;
         position: relative;
         overflow: hidden;
-        --card-accent: #34d399;
+        --card-accent: #9b87f5;
       }
       .cert-card::before {
         content: '';
@@ -460,9 +460,9 @@
         font-size: 9px;
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: var(--card-accent);
-        background: rgba(52, 211, 153, 0.08);
-        border: 1px solid rgba(52, 211, 153, 0.2);
+        color: var(--accent);
+        background: rgba(155, 135, 245, 0.1);
+        border: 1px solid rgba(155, 135, 245, 0.25);
         border-radius: 4px;
         padding: 2px 6px;
         flex-shrink: 0;
