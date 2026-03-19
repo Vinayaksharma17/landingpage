@@ -531,6 +531,14 @@
           </div>
           <div class="link-arrow">→</div>
         </a>
+         <a class="link-card" id="card-cover" href="#" target="_blank">
+          <div class="link-icon">✉️</div>
+          <div class="link-info">
+            <div class="link-label">Cover Letter</div>
+            <div class="link-value" id="cover-letter"></div>
+          </div>
+          <div class="link-arrow">→</div>
+        </a>
         <a class="link-card" id="card-linkedin" href="#" target="_blank">
           <div class="link-icon">💼</div>
           <div class="link-info">
@@ -565,6 +573,7 @@
         portfolio: 'https://vinayaksharma.dpdns.org/', // ⑤ Portfolio URL
         github: 'https://github.com/Vinayaksharma17', // ⑥ GitHub profile URL
         video: 'https://youtube.com/shorts/nhTyncMMm0s', // ⑦ Video resume URL (YouTube / Loom / Vimeo)
+        coverLetter: 'https://ik.imagekit.io/9tixsmmmb/resume/Cover%20Letter%20-%20Vinayak%20Sharma.pdf',
         linkedin: 'https://www.linkedin.com/in/vinayak-sharma17/', // ⑧ LinkedIn profile URL
 
         // ⑨ Certificates — add as many as you want: { title, issuer, url }
@@ -605,6 +614,7 @@
       document.getElementById('disp-video').textContent = MY.video
         ? 'Watch intro ▶'
         : '—'
+      document.getElementById('cover-letter').textContent = "Cover Letter"
       document.getElementById('disp-linkedin').textContent = clean(MY.linkedin)
 
       document.getElementById('card-phone').href =
@@ -613,6 +623,7 @@
       document.getElementById('card-portfolio').href = MY.portfolio
       document.getElementById('card-github').href = MY.github
       document.getElementById('card-video').href = MY.video || '#'
+      document.getElementById('card-cover').href = MY.coverLetter
       document.getElementById('card-linkedin').href = MY.linkedin
 
       // Render certificates
