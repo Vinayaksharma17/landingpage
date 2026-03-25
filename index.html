@@ -515,6 +515,14 @@
           </div>
           <div class="link-arrow">→</div>
         </a>
+                <a class="link-card" id="card-resume" href="#" target="_blank">
+          <div class="link-icon">🌐</div>
+          <div class="link-info">
+            <div class="link-label">Resume</div>
+            <div class="link-value" id="disp-resume"></div>
+          </div>
+          <div class="link-arrow">→</div>
+        </a>
         <a class="link-card" id="card-github" href="#" target="_blank">
           <div class="link-icon">🐙</div>
           <div class="link-info">
@@ -570,6 +578,7 @@
 
         phone: '+91 7975524393', // ③ Phone number
         email: 'vvsharma999@gmail.com', // ④ Email address
+        resume: 'https://ik.imagekit.io/9tixsmmmb/resume/vinayak_sharma_3yrs.pdf?updatedAt=1773715492260',
         portfolio: 'https://vinayaksharma.dpdns.org/', // ⑤ Portfolio URL
         github: 'https://github.com/Vinayaksharma17', // ⑥ GitHub profile URL
         video: 'https://youtube.com/shorts/nhTyncMMm0s', // ⑦ Video resume URL (YouTube / Loom / Vimeo)
@@ -610,6 +619,7 @@
       document.getElementById('disp-portfolio').textContent = clean(
         MY.portfolio,
       )
+      document.getElementById('disp-resume').textContent = "Resume"
       document.getElementById('disp-github').textContent = clean(MY.github)
       document.getElementById('disp-video').textContent = MY.video
         ? 'Watch intro ▶'
@@ -621,6 +631,7 @@
         'tel:' + MY.phone.replace(/\D/g, '')
       document.getElementById('card-email').href = 'mailto:' + MY.email
       document.getElementById('card-portfolio').href = MY.portfolio
+      document.getElementById('card-resume').href = MY.resume
       document.getElementById('card-github').href = MY.github
       document.getElementById('card-video').href = MY.video || '#'
       document.getElementById('card-cover').href = MY.coverLetter
