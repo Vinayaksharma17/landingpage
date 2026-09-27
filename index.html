@@ -205,12 +205,11 @@
       }
 
       .tag-line {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
+        display: block;
+        white-space: nowrap;
         font-family: var(--mono);
-        font-size: 11px;
-        letter-spacing: 2px;
+        font-size: clamp(5.2px, calc(2.05vw - 0.9px), 9px);
+        letter-spacing: clamp(0px, calc(0.1vw - 0.02px), 0.5px);
         text-transform: uppercase;
         color: var(--text3);
       }
@@ -507,6 +506,14 @@
           </div>
           <div class="link-arrow">→</div>
         </a>
+        <a class="link-card" id="card-video" href="#" target="_blank">
+          <div class="link-icon">🎬</div>
+          <div class="link-info">
+            <div class="link-label">Video Resume</div>
+            <div class="link-value" id="disp-video"></div>
+          </div>
+          <div class="link-arrow">→</div>
+        </a>
         <a class="link-card" id="card-portfolio" href="#" target="_blank">
           <div class="link-icon">🌐</div>
           <div class="link-info">
@@ -520,14 +527,6 @@
           <div class="link-info">
             <div class="link-label">GitHub</div>
             <div class="link-value" id="disp-github"></div>
-          </div>
-          <div class="link-arrow">→</div>
-        </a>
-        <a class="link-card" id="card-video" href="#" target="_blank">
-          <div class="link-icon">🎬</div>
-          <div class="link-info">
-            <div class="link-label">Video Resume</div>
-            <div class="link-value" id="disp-video"></div>
           </div>
           <div class="link-arrow">→</div>
         </a>
@@ -558,13 +557,14 @@
 
       const MY = {
         name: 'Vinayak Sharma', // ① Full name
-        title: 'Associate Engineer - IIoT', // ② Job title / tagline
+        title:
+          'SOFTWARE DEVELOPER | BACKEND ENGINEER — INDUSTRIAL IOT & MICROSERVICES', // ② Job title / tagline
 
         phone: '+91 7975524393', // ③ Phone number
         email: 'vvsharma999@gmail.com', // ④ Email address
-        portfolio: 'https://vinayaksharma.dpdns.org/', // ⑤ Portfolio URL
-        github: 'https://github.com/Vinayaksharma17', // ⑥ GitHub profile URL
-        video: 'https://youtube.com/shorts/nhTyncMMm0s', // ⑦ Video resume URL (YouTube / Loom / Vimeo)
+        video: 'https://youtube.com/shorts/nhTyncMMm0s', // ⑤ Video resume URL (YouTube / Loom / Vimeo)
+        portfolio: 'https://vinayaksharma.dpdns.org/', // ⑥ Portfolio URL
+        github: 'https://github.com/Vinayaksharma17', // ⑦ GitHub profile URL
         linkedin: 'https://www.linkedin.com/in/vinayak-sharma17/', // ⑧ LinkedIn profile URL
 
         // ⑨ Certificates — add as many as you want: { title, issuer, url }
