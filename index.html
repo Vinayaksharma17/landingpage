@@ -208,8 +208,8 @@
         display: block;
         white-space: nowrap;
         font-family: var(--mono);
-        font-size: clamp(5.2px, calc(2.05vw - 0.9px), 9px);
-        letter-spacing: clamp(0px, calc(0.1vw - 0.02px), 0.5px);
+        font-size: clamp(4.9px, calc(1.93vw - 0.85px), 8.5px);
+        letter-spacing: clamp(0px, calc(0.094vw - 0.02px), 0.47px);
         text-transform: uppercase;
         color: var(--text3);
       }
@@ -319,6 +319,14 @@
         --card-accent: #a78bfa;
         animation: slideIn 0.4s ease 0.3s both;
       }
+      .link-card:nth-child(7) {
+        --card-accent: #facc15;
+        animation: slideIn 0.4s ease 0.35s both;
+      }
+      .link-card:nth-child(8) {
+        --card-accent: #38bdf8;
+        animation: slideIn 0.4s ease 0.4s both;
+      }
 
       @keyframes slideIn {
         from {
@@ -403,6 +411,13 @@
         flex: 1;
         height: 1px;
         background: var(--border);
+      }
+
+      /* ── Projects Section ── */
+      .projects-cta {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
       }
 
       .cert-list {
@@ -558,6 +573,26 @@
 
       <div class="divider"></div>
 
+      <div class="section-label">📂 Projects</div>
+      <div class="projects-cta">
+        <a
+          class="link-card"
+          id="card-projects"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="link-icon">🧩</div>
+          <div class="link-info">
+            <div class="link-label">Portfolio Projects</div>
+            <div class="link-value">View all projects</div>
+          </div>
+          <div class="link-arrow">→</div>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
       <div class="section-label">🏅 Certificates</div>
       <div class="cert-list" id="cert-list"></div>
 
@@ -586,8 +621,9 @@
         portfolio: 'https://vinayaksharma.dpdns.org/', // ⑧ Portfolio URL
         github: 'https://github.com/Vinayaksharma17', // ⑨ GitHub profile URL
         linkedin: 'https://www.linkedin.com/in/vinayak-sharma17/', // ⑩ LinkedIn profile URL
+        projects: 'https://vinayaksharma.dpdns.org/portfolio', // ⑪ Portfolio projects listing URL
 
-        // ⑪ Certificates — add as many as you want: { title, issuer, url }
+        // ⑫ Certificates — add as many as you want: { title, issuer, url }
         certificates: [
           {
             title: 'Azure DevOps with Git',
@@ -638,6 +674,7 @@
       document.getElementById('card-video').href = MY.video || '#'
       document.getElementById('card-cover').href = MY.coverLetter
       document.getElementById('card-linkedin').href = MY.linkedin
+      document.getElementById('card-projects').href = MY.projects
 
       // Render certificates
       const certList = document.getElementById('cert-list')
